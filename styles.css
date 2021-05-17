@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'cybersloth';
+    src:  url('misc/CyberSloth.ttf') format('truetype');
+}
+body {
+    background-color: #1a1a40;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'cybersloth';
+    width: 100%;
+    height: 100%;
+    color: #dbd3d0;
+    text-align: center;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+#bar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.img {
+    position: relative;
+    height: 90px;
+}
+.img > div{
+    transform: scale(2,2);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1000;
+}
+#bc .img > div {
+    transform: scale(3,3);
+}
+#rune .img > div {
+    transform: scale(3,3);
+}
+.pointbar {
+    display: flex;
+    justify-content: space-between;
+    width: 90px;
+    padding-left: 10px;
+    margin: -20px auto 5px;
+    text-align: right;
+    font-size: 32px;
+    z-index: 1000;
+    text-shadow: -2px -2px #1c0901, 0px -2px #1c0901, 2px -2px #1c0901, -2px 0px #1c0901, 2px 0px #1c0901, -2px 2px #1c0901, 0px 2px #1c0901, 2px 2px #1c0901, 4px 2px #1c0901, 2px 4px #1c0901, 4px 4px #1c0901;
+
+}
+.container{
+    width: 150px;
+}
+#info {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+#timer{
+    font-size: 80px;
+}
+.time{
+    display: inline-block;
+    width: 40px;
+}
+.divider{
+    display: inline-block;
+}
+#total {
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+#stats {
+    flex-shrink: 0;
+    width: 300px;
+    text-align: right;
+    text-shadow: -2px -2px #1c0901, 0px -2px #1c0901, 2px -2px #1c0901, -2px 0px #1c0901, 2px 0px #1c0901, -2px 2px #1c0901, 0px 2px #1c0901, 2px 2px #1c0901, 4px 2px #1c0901, 2px 4px #1c0901, 4px 4px #1c0901;
+
+}

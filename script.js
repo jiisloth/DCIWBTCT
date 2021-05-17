@@ -1,6 +1,8 @@
-let time = [3,0,0,9]
+let time = [3,0,0]
+let start_time = (time[0] * 60 * 60 + time[1]*60 + time[2]) * 1000
+let time_left = start_time
 let timing = false
-
+let lasttime = 0
 let stats = {
     "bc": {"points": 15, "times": 0},
     "rune": {"points": 15, "times": 0},
@@ -27,11 +29,15 @@ $( document ).ready(function() {
         return false
     });
     $("#timer").click(function(){
-        clearInterval(timing)
-        timing = setInterval(take_time, 100)
+        if (!timing){
+            lasttime = Math.round(Date.now())
+            timing = setInterval(take_time, 100)
+        }
     });
     $("#timer").contextmenu(function() {
-        stop_timing()
+        if (timing){
+            stop_timing()
+        }
         return false
     });
 });
@@ -60,29 +66,19 @@ function update_bar(){
 }
 
 function take_time(){
-    time[3] -= 1
-    if (time[3] < 0){
-        time[3] = 9
-        time[2] -= 1
-    }
-    if (time[2] < 0){
-        time[2] = 59
-        time[1] -= 1
-    }
-    if (time[1] < 0){
-        time[1] = 59
-        time[0] -= 1
-    }
-    if (time[0] < 0){
-        time = [0,0,0,0]
+    time_left = start_time - (Math.round(Date.now()) - lasttime)
+    if (time_left < 0){
+        time_left = 0
         update_clock()
         stop_timing()
     }
     update_clock()
-
 }
 
 function update_clock(){
+    time[2] = Math.floor(time_left / 1000) % 60
+    time[1] = Math.floor(time_left / 1000 / 60) % 60
+    time[0] = Math.floor(time_left / 1000 / 60 / 60)
     if (time[0] > 9){
         $("#h1").text(Math.floor(time[0]/10))
     }
@@ -98,5 +94,7 @@ function update_clock(){
 
 
 function stop_timing(){
+    start_time = time_left
     clearInterval(timing)
+    timing = false
 }

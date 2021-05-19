@@ -3,7 +3,6 @@
     src:  url('misc/CyberSloth.ttf') format('truetype');
 }
 body {
-    background-color: #1a1a40;
 }
 
 html, body {
@@ -58,9 +57,10 @@ html, body {
 .container{
     width: 150px;
 }
-#info {
+.info {
     padding-left: 2px;
     padding-right: 2px;
+    text-shadow: -1px -1px #1c0901, 0px -1px #1c0901, 1px -1px #1c0901, -1px 0px #1c0901, 1px 0px #1c0901, -1px 1px #1c0901, 0px 1px #1c0901, 1px 1px #1c0901, 2px 1px #1c0901, 1px 2px #1c0901, 2px 2px #1c0901;
 }
 #timer{
     font-size: 80px;
